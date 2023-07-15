@@ -1,29 +1,26 @@
 <script>
 import { navigating, page } from '$app/stores'
-import '@/app.css?v=19062023'
-import Footer from '@/components/nav/Footer.svelte'
-import Nav from '@/components/nav/Nav.svelte'
-import { startClient } from '@/lib/utils/i18n.js'
+import '@/app.css'
+import Footer from '@/components/Navigation/Footer/Footer.svelte'
+import Nav from '@/components/Navigation/Navbar/Nav.svelte'
+import { startClient } from '$lib/utils/i18n'
 import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 import { derived } from 'svelte/store'
-import ScrollToTop from '@/components/nav/ScrollToTop.svelte'
+import ScrollToTop from '@/components/Navigation/ScrollToTop.svelte'
+import { afterNavigate, beforeNavigate, invalidate } from '$app/navigation'
+import { onMount } from 'svelte'
 
-NProgress.configure({
-    // https://github.com/rstacruz/nprogress#configuration
-    minimum: 0.16,
-    showSpinner: false,
+export let data
+
+// TODO: if browser is incompatible, show a warning, give the user the option to continue or continue and don't show again
+let showBrowserIncompatibilityWarning = false
+
+beforeNavigate(() => {
+    NProgress.start()
 })
-
-// nprogress bar
-$: {
-    if ($navigating) {
-        NProgress.start()
-    }
-    if (!$navigating) {
-        NProgress.done()
-    }
-}
+afterNavigate(() => {
+    NProgress.done()
+})
 
 // derived store that runs whenever the $navigating store changes value
 const delayedPreloading = derived(navigating, (_, set) => {
@@ -32,13 +29,14 @@ const delayedPreloading = derived(navigating, (_, set) => {
 })
 
 startClient()
+console.log(data)
 
 $: segment = $page.url.pathname.substring(1).split('/')[0] // gets the first segment of the URL (e.g. /blog/1 => blog)
 // $: console.log(segment)
 </script>
 
 <ScrollToTop />
-<Nav />
+<Nav user="{data.user}" />
 <main>
     <slot />
 </main>

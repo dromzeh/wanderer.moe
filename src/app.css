@@ -5,25 +5,12 @@
 @layer base {
     html {
         scroll-behavior: smooth;
-        @apply bg-main-400;
+        @apply bg-main-600;
     }
 
     body {
-        font-family: 'Sofia Sans', -apple-system, BlinkMacSystemFont;
+        font-family: 'Satoshi', sans-serif;
         @apply m-0 overflow-x-hidden text-sm leading-relaxed text-[#333];
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply m-0 mb-2 font-normal leading-tight;
-    }
-
-    h1 {
-        @apply text-2xl;
     }
 
     a {
@@ -53,11 +40,11 @@
     }
 
     ::-moz-selection {
-        @apply bg-accent-500 text-white;
+        @apply bg-accent-100 bg-opacity-20 text-white;
     }
 
     ::selection {
-        @apply bg-accent-500 text-white;
+        @apply bg-accent-100 bg-opacity-20 text-white;
     }
 
     .rtl {
@@ -65,95 +52,10 @@
     }
 }
 
-/* body {
-    margin: 0;
-    font-family: 'Sofia Sans', -apple-system, BlinkMacSystemFont;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #333;
-    overflow-x: hidden;
+#nprogress {
+    @apply pointer-events-none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0 0 0.5em 0;
-    font-weight: 400;
-    line-height: 1.2;
+#nprogress .bar {
+    @apply fixed left-0 top-0 z-[99] h-[3px] w-full rounded-md bg-accent-300;
 }
-
-.sigfont {
-    font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-    font-size: 2em;
-}
-
-a {
-    color: inherit;
-}
-
-@media (min-width: 400px) {
-    body {
-        font-size: 16px;
-    }
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #2c2c2c;
-    border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #6366f1;
-    border-radius: 8px;
-}
-
-.blackbg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
-
-.popupcontainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 75%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
-
-.previewImg {
-    max-height: 128px;
-    max-width: 128px;
-}
-
-.rtl {
-    direction: rtl;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-::-moz-selection {
-    color: rgb(255, 255, 255);
-    background: #6366f1;
-}
-
-::selection {
-    color: rgb(255, 255, 255);
-    background: #6366f1;
-} */

@@ -3,25 +3,11 @@ import {
     type StringRedirects,
 } from '@svackages/sveltekit-hook-redirect'
 import type { Handle } from '@sveltejs/kit'
+// import { dev } from '$app/environment'
+import { auth } from '$lib/server/lucia'
 
 // redirects from old site & third party urls
 const redirects: StringRedirects = {
-    '/characterparts': {
-        to: '/genshin-impact/character-sheets',
-        code: 301,
-    },
-    '/splashart': {
-        to: '/genshin-impact/splash-art',
-        code: 301,
-    },
-    '/emotes': {
-        to: '/genshin-impact/emotes',
-        code: 301,
-    },
-    '/tcg': {
-        to: '/genshin-impact/tcg',
-        code: 301,
-    },
     '/asset-request-form': {
         to: 'https://docs.google.com/forms/d/1wEflnF1asaLtRGqo6RMUKD55nRwy1-V77ogW1wLmvus/',
         code: 301,
@@ -40,5 +26,7 @@ const redirects: StringRedirects = {
     },
 }
 
-export const handle: Handle = ({ event, resolve }) =>
-    RedirectHook({ event, resolve, redirects })
+export const handle: Handle = async ({ event, resolve }) => {
+    event.locals.auth = auth.handleRequest(event)
+    return RedirectHook({ event, resolve, redirects })
+}

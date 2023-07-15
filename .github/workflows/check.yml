@@ -35,6 +35,33 @@ jobs:
             - name: Prettier check
               run: pnpm run prettier:check
 
+    svelte-check:
+        name: Svelte check
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: latest
+                  run_install: false
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Initialize git submodules (i18n)
+              run: git submodule update --init --recursive
+
+            - name: Svelte check
+              run: pnpm run svelte:check
+
     # lint:
     #     name: ESLint
     #     runs-on: ubuntu-latest

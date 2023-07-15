@@ -4,13 +4,13 @@ All types of contributions are welcome, if this includes to the website, API, CD
 
 ## Table of Contents
 
-- [Reporting Bugs](#reporting-bugs)
-- [Contributing to the Website](#contributing-to-the-website)
-- [Contributing to the API](#contributing-to-the-api)
-- [Contributing to Assets](#contributing-to-assets)
-- [Contributing to Translations](#contributing-to-translations)
-- [Commit Message Guidelines](#commit-message-guidelines)
-- [I want to contribute](#i-want-to-contribute)
+-   [Reporting Bugs](#reporting-bugs)
+-   [Contributing to the Website](#contributing-to-the-website)
+-   [Contributing to the API](#contributing-to-the-api)
+-   [Contributing to Assets](#contributing-to-assets)
+-   [Contributing to Translations](#contributing-to-translations)
+-   [Commit Message Guidelines](#commit-message-guidelines)
+-   [I want to contribute](#i-want-to-contribute)
 
 ## Reporting Bugs
 
@@ -48,7 +48,7 @@ Commit messages should follow the [Conventional Commits](https://www.conventiona
 
 Example:
 
-``` sh
+```sh
 chore(deps): update all dependencies
 ```
 

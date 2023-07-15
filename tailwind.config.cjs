@@ -3,29 +3,29 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-    content: [
-        './src/**/*.{html,svelte,ts,js}',
-    ],
+    content: ['./src/**/*.{html,svelte,ts,js}'],
     options: {
         whitelistPatterns: [/svelte-/],
         defaultExtractor: (content) =>
-            [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
+            [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(
+                ([_match, group, ..._rest]) => group
+            ),
     },
     theme: {
         extend: {
-            'animation': {
-                'text': 'text 1s ease infinite',
+            animation: {
+                text: 'text 1s ease infinite',
             },
-            'keyframes': {
-                'text': {
+            keyframes: {
+                text: {
                     '0%, 100%': {
                         'background-size': '200% 200%',
-                        'background-position': 'left center'
+                        'background-position': 'left center',
                     },
                     '50%': {
                         'background-size': '200% 200%',
-                        'background-position': 'right center'
-                    }
+                        'background-position': 'right center',
+                    },
                 },
             },
             textShadow: {
@@ -58,7 +58,6 @@ module.exports = {
                 },
             },
         },
-
     },
     plugins: [
         plugin(function ({ matchUtilities, theme }) {
@@ -68,8 +67,10 @@ module.exports = {
                         textShadow: value,
                     }),
                 },
-                { values: theme('textShadow') }
+                {
+                    values: theme('textShadow'),
+                }
             )
         }),
     ],
-};
+}

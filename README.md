@@ -6,7 +6,7 @@
 ![Release Badge]
 ![Svelte Badge]
 
-[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en) (powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers, R2 & D1).
+[**wanderer.moe**](https://wanderer.moe) is a **centralized database** of various game assets — built using [**SvelteKit**](https://kit.svelte.dev/), [**TailwindCSS**](https://tailwindcss.com/), and [**Node.js**](https://nodejs.org/en), powered with [**Cloudflare**](https://www.cloudflare.com/) Pages, Workers & R2 paired with [**Lucia**](https://lucia-auth.com/), [**Prisma**](https://prisma.io), and [**PlanetScale**](https://planetscale.com) for the database & authentication, [**Resend**](https://resend.com/) for email delivery, and [**Crowdin**](https://crowdin.com/) for translations.
 
 </div>
 
@@ -20,25 +20,25 @@ To run the website locally, follow these steps:
 
 2. Clone the repository (either `main` or `development` branch, dependant on your use case), and run either:
 
-   ```bash
-   git clone https://github.com/wanderer-moe/site
-   # OR
-   git clone https://github.com/wanderer-moe/site -b development
-   ```
+    ```bash
+    git clone https://github.com/wanderer-moe/site
+    # OR
+    git clone https://github.com/wanderer-moe/site -b development
+    ```
 
     You also want to initialize the (i18n) submodules:
 
-   ```bash
-   git submodule update --init --recursive
-   ```
+    ```bash
+    git submodule init && git submodule update
+    ```
 
-3. Install dependencies & run `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use).
+3. Install dependencies & setup environment variables, then run `npx prisma generate` (&& `npx prisma db push` where applicable)
 
-4. To build the website, run `pnpm run build`. After the build process is complete, run `pnpm run preview` to preview the site at `http://localhost:4173`.
+4. `pnpm run dev` to start the development server. The website will be available at `http://localhost:1337` (or another port if 1337 is already in use).
+
+5. To build the website, run `pnpm run build`. After the build process is complete, run `pnpm run preview` to preview the site at `http://localhost:4173`.
 
 ## API & CDN
-
-> **Note**: There are currently CORS rules setup if you are using wanderer.moe's CDN — you may need to create your own R2 instance and change the `cdn` subdomain to your own R2. Make sure to also clone/modify the API and update the URLs.
 
 The API and CDN have their own respective subdomains — `api` and `cdn`. The API is powered by Cloudflare Workers and the CDN is powered by Cloudflare R2. The API's code is available at the [api repository][api.wanderer.moe]. More details on setting up the API are available [on api/#usage][api.wanderer.moe Usage].
 
@@ -50,13 +50,13 @@ View `src/hooks.server.ts` for the current redirects.
 
 ### Cloudflare Configuration
 
-- **Build Command**:
+-   **Build Command**:
 
     ```bash
     npx pnpm i --store=node_modules/.pnpm-store && npx pnpm run build
     ```
 
-- **Build Output Directory**:
+-   **Build Output Directory**:
 
     ```bash
     /.svelte-kit/cloudflare
@@ -66,8 +66,8 @@ All pushes to the `development` branch is deployed to the `beta` subdomain @ [be
 
 ## Contributing
 
-- **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
-- **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
+-   **Development**: All contributions are welcome. Please make all pull requests to the `development` branch!
+-   **Assets and Translation**: Asset contributions or requesting access to the Crowdin project can be sent on Discord (@dromzeh) or email: [marcel@dromzeh.dev][mail].
 
 A more detailed guide on contributing can be found in [CONTRIBUTING.md][Contributing].
 
@@ -75,7 +75,7 @@ A more detailed guide on contributing can be found in [CONTRIBUTING.md][Contribu
 
 #### Developers
 
-- [@dromzeh][Dromzeh] - Project Lead & Developer (Website, API & CDN)
+-   [@dromzeh][Dromzeh] - Project Lead & Developer (Website, API & CDN)
 
 #### Asset Contributors and Translators
 

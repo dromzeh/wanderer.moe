@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Report any bugs / unexpected behaviour you encounter on wanderer.moe
-title: "[BUG]"
+title: '[BUG]'
 labels: bug
 assignees: dromzeh
-
 ---
 
 **Describe the bug:**
@@ -27,13 +26,13 @@ If applicable, add screenshots or videos to help explain your problem.
 
 **Your Environment:**
 
-- OS: [e.g. Windows 10 22H2, iOS 16]
-- Browser [e.g. Chrome, Safari, Firefox, Brave]
+-   OS: [e.g. Windows 10 22H2, iOS 16]
+-   Browser [e.g. Chrome, Safari, Firefox, Brave]
 
 **Your Device:**
 
-- Device: [e.g. Desktop, Laptop, Phone, Tablet]
-- Device Model: [e.g. iPhone 12, Samsung Galaxy S21 Ultra]
+-   Device: [e.g. Desktop, Laptop, Phone, Tablet]
+-   Device Model: [e.g. iPhone 12, Samsung Galaxy S21 Ultra]
 
 **Have you tried clearing your cache and following other troubleshooting steps?:**
 

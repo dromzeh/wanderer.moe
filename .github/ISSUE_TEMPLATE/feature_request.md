@@ -1,10 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for wanderer.moe
-title: "[REQUEST]"
+title: '[REQUEST]'
 labels: enhancement
 assignees: dromzeh
-
 ---
 
 **Is your feature request related to a problem? Please describe:**
